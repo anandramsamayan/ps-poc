@@ -1,0 +1,191 @@
+
+//====================================================================
+
+rabbitmqctl list_queues
+
+mongod --dbpath c:\data
+
+mongo
+
+show dbs
+
+use dbname
+
+show collections
+
+use dbname
+
+db.notificationPreferences.find()
+
+ObjectBuilder objectBuilder = new ObjectBuilder();
+			notificationPreferences.setClientPrefJSON(objectBuilder.getJson());
+
+PSABCHLTHPRI20190106
+
+{  
+   "clientname":"ABC Health",
+   "clientid":"PSABCHLTHPRI20190106",
+   "channelsOpted":[  
+      {  
+         "name":"Email",
+         "mode":null,
+         "prefPartner":"Twilio",
+         "apiKey":"adssewewesdsasssssqeewrererewew12wqwq321qwqwq1dkkkkk",
+         "commCategorys":[  
+            {  
+               "type":"Promotional",
+               "mode":"Async",
+               "isfutureDateSupported":"Yes",
+               "deliveryReceiptRequired":"Yes",
+               "failoverCallbackUrl":"https://abc.in/xyz/failurepostings.../",
+               "retryRequired":"Yes",
+               "comTemplates":[  
+                  {  
+                     "id":"wlcmMailerPROM20191",
+                     "name":"WelcomeMailer",
+                     "content":"Hi {{user}},\r\nYou are receiving this mail as part of welcoming on board {{today}}.\r\n\r\n{{user}}, \r\n\r\n\r\nThanks,\r\nABC Health",
+                     "desc":"Welcome mail"
+                  },
+                  {  
+                     "id":"bDayMailerPROM20191",
+                     "name":"bDayMailer",
+                     "content":"Hi {{user}},\r\nWishing you a very happy birth day {{today}}.\r\n\r\n{{user}}, \r\n\r\n\r\nThanks,\r\nABC Health",
+                     "desc":"BirthDay mail"
+                  }
+               ],
+               "blocklist":[  
+                  "abc@abc.com",
+                  "nndbc@gmail.com"
+               ]
+            }
+         ],
+         "billingInfoRequired":"Yes"
+      },
+      {  
+         "name":"SMS",
+         "mode":null,
+         "prefPartner":"Twilio",
+         "apiKey":"nmnmntutdttytyrertrtrttrwtewewerwewewewewewewew:yhfftttttr",
+         "commCategorys":[  
+            {  
+               "type":"Transactional",
+               "mode":"Sync",
+               "isfutureDateSupported":"No",
+               "deliveryReceiptRequired":"Yes",
+               "failoverCallbackUrl":"https://abc.in/xyz/failurepostings.../",
+               "retryRequired":"Yes",
+               "comTemplates":[  
+                  {  
+                     "id":"pinRSTMailerTRANS20191",
+                     "name":"Pin reset OTP",
+                     "content":"Hi {{user}},\r\nYou are receiving this mail as part of welcoming on board {{today}}.\r\n\r\n{{user}}, \r\n\r\n\r\nThanks,\r\nABC Health",
+                     "desc":"Pin reset OTP"
+                  }
+               ],
+               "blocklist":[  
+                  "abc@abc.com",
+                  "nndbc@gmail.com"
+               ]
+            }
+         ],
+         "billingInfoRequired":"Yes"
+      }
+   ],
+   "prefPartner":null,
+   "commMode":null,
+   "deliveryReceiptRequired":null,
+   "failoverCallbackUrl":null
+}
+
+
+mail payload
+
+{  
+   "clientId":"PSABCHLTHPRI20190106",
+   "type":"Email",
+   "category":"Promotional",
+   "email":{  
+      "from":"admin@abchealth.com",
+      "to":[  
+         "anandram.samayan@gmail.com"
+      ],
+      "cc":[  
+         "anandram.samayan@gmail.com"
+      ],
+      "subject":"test broadcast",
+      "message":"Hi this is a welcome mailer",
+      "async":false,
+      "ip_pool":null,
+      "send_at":"1553583614172",
+      "futureDate":null,
+      "replacements":{  
+         "today":"Tue Mar 26 12:30:14 IST 2019",
+         "user":"Purple"
+      },
+      "templateId":"wlcmMailerPROM20191",
+      "html":false
+   },
+   "sms":{  
+      "message":"Test SMS",
+      "sender":"AKSTRHLTH",
+      "number":"872655353",
+      "isBulk":"No",
+      "numbers":null,
+      "inboxIds":null,
+      "smsgroup":{  
+         "groupId":"Tstusrs",
+         "groupName":"Testusers"
+      },
+      "smsContacts":null,
+      "smsgroups":null
+   }
+}
+
+
+
+
+{
+  "clientId": "PSABCHLTHPRI20190106",
+  "type": "Email",
+  "category": "Transactional",
+  "email": {
+    "from": "admin@abchealth.com",
+    "to": [
+      "anandram_s@yahoo.com"
+    ],
+    "cc": [
+      "anandram_s@yahoo.com"
+    ],
+    "subject": "test broadcast",
+    "message": "Hi this is a welcome mailer",
+    "async": false,
+    "ip_pool": null,
+    "send_at": "1553583614172",
+    "futureDate": null,
+    "replacements": {
+      "today": "Tue Mar 26 12:30:14 IST 2019",
+      "user": "Purple"
+    },
+    "templateId": "bDayMailerPROM20191",
+    "html": false
+  },
+  "sms": {
+    "message": "Test SMS",
+    "sender": "AKABCHLTH",
+    "number": "8726353",
+    "isBulk": "No",
+    "numbers": null,
+    "inboxIds": null,
+    "smsgroup": {
+      "groupId": "Tstusrs",
+      "groupName": "Testusers"
+    },
+    "smsContacts": null,
+    "smsgroups": null
+  }
+}
+
+
+
+rabbitmqctl purge_queue spring-boot1
+rabbitmqctl list_queues

@@ -1,0 +1,34 @@
+NotificationPreference
+clientname
+clientid
+
+CommChannel
+  { CommChannelName=Email  //Mailing,text
+    CommMode=sync,Async,Mixed
+    CommPrefPartner=sendgrid
+    CommCategory
+    {
+     
+     {type : Promotional,Mode:Async,StoreAndForward
+     delivery receipt , retry required
+     }
+     {
+     type : Transactional,Mode :Sync
+     delivery receipt , retry required
+     }
+     
+     Templates
+     {id
+     name
+     content
+     
+     
+    }
+    
+    Text:SMS/Whatsapp
+    
+CommMode //
+
+account spend limit
+
+Commpartner
