@@ -31,7 +31,7 @@ public class Sendgridmailer {
     Mail mail = new Mail(from, subject, to, content);
     
     
-    File file = new File("C:\\Users\\HP\\SamPlayGround\\purpleslate\\bootservices\\purple-notification-services\\src\\main\\java\\com\\purpleslate\\notification\\service\\sample.pdf");
+    File file = new File("sample.pdf");
 	   byte[] filedata=IOUtils.toByteArray(new FileInputStream(file));
 	  Base64 x = new Base64();
 	 String imageDataString = x.encodeAsString(filedata);
@@ -44,7 +44,6 @@ public class Sendgridmailer {
     mail.addAttachments(attachments3);
 
     
-//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
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     try {
@@ -75,7 +74,7 @@ public class Sendgridmailer {
 		String message = template.getTemplate(contentTemplate,replacements);
 	    Content content = new Content("text/plain", message);
 	    Mail mail = new Mail(from, subject, to, content);
-	//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
+	
 	    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
 	    Request request = new Request();
 	    try {
